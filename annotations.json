@@ -1,18 +1,508 @@
 {
-"train": 
-{
-"ring1.jpg": {"mask_path":"./dataset/train/masks/ring1.jpg", "bbox": [27, 25, 172, 209]},
-"ring2.jpg": {"mask_path":"./dataset/train/masks/ring2.jpg", "bbox": [569, 239, 1286, 944]},
-"ring3.jpg": {"mask_path":"./dataset/train/masks/ring3.jpg", "bbox": [135, 68, 466, 415]},
-"ring4.jpg": {"mask_path":"./dataset/train/masks/ring4.jpg", "bbox": [133, 234, 1085, 718]},
-"ring5.jpg": {"mask_path":"./dataset/train/masks/ring5.jpg", "bbox": [163, 197, 477, 597]},
-"ring6.jpg": {"mask_path":"./dataset/train/masks/ring6.jpg", "bbox": [12, 30, 438, 288]},
-"ring7.jpg": {"mask_path":"./dataset/train/masks/ring7.jpg", "bbox": [4, 11, 789, 438]},
-"ring8.jpg": {"mask_path":"./dataset/train/masks/ring8.jpg", "bbox": [185, 83, 621, 639]}
-},
-"test": 
-{"ring_test_1.jpg" : {"mask_path":"./dataset/test/masks/ring_test_1.jpg", "bbox": [74, 351, 936, 649]},
-"ring_test_2.jpg" : {"mask_path":"./dataset/test/masks/ring_test_2.jpg", "bbox": [138, 196, 508, 610]}
-}
-
+  "train": [
+    {
+      "image_path": "./dataset/train/DJI_0004.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0004.png",
+      "bbox": [1910, 0, 4094, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0008.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0008.png",
+      "bbox": [1418, 0, 4379, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0012.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0012.png",
+      "bbox": [1940, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0016.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0016.png",
+      "bbox": [1035, 0, 4656, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0020.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0020.png",
+      "bbox": [1328, 0, 5047, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0024.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0024.png",
+      "bbox": [503, 0, 4396, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0028.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0028.png",
+      "bbox": [1490, 0, 4521, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0032.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0032.png",
+      "bbox": [1219, 0, 2983, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0036.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0036.png",
+      "bbox": [825, 0, 3384, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0040.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0040.png",
+      "bbox": [0, 0, 3495, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0046.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0046.png",
+      "bbox": [0, 0, 5150, 2969]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0050.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0050.png",
+      "bbox": [1161, 0, 3638, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0054.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0054.png",
+      "bbox": [1240, 349, 3773, 2969]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0058.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0058.png",
+      "bbox": [1865, 583, 4228, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0092.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0092.png",
+      "bbox": [1148, 53, 3993, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0096.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0096.png",
+      "bbox": [836, 90, 4129, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0104.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0104.png",
+      "bbox": [1434, 47, 4468, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0108.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0108.png",
+      "bbox": [1639, 4, 4088, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0116.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0116.png",
+      "bbox": [2493, 217, 3720, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0120.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0120.png",
+      "bbox": [2003, 394, 3590, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0124.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0124.png",
+      "bbox": [1736, 460, 4250, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0128.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0128.png",
+      "bbox": [1223, 0, 4473, 2856]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0132.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0132.png",
+      "bbox": [153, 0, 3557, 2872]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0157.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0157.png",
+      "bbox": [2402, 0, 3957, 2580]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0161.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0161.png",
+      "bbox": [1835, 0, 3732, 2580]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0165.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0165.png",
+      "bbox": [2344, 0, 4721, 2541]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0169.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0169.png",
+      "bbox": [2232, 0, 4585, 2673]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0173.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0173.png",
+      "bbox": [1902, 0, 4103, 2865]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0177.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0177.png",
+      "bbox": [2067, 0, 3057, 2758]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0181.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0181.png",
+      "bbox": [524, 0, 3664, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0185.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0185.png",
+      "bbox": [224, 0, 3664, 2835]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0189.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0189.png",
+      "bbox": [0, 644, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0193.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0193.png",
+      "bbox": [1208, 1094, 5280, 1635]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0197.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0197.png",
+      "bbox": [1931, 1170, 5280, 1806]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0201.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0201.png",
+      "bbox": [893, 0, 3770, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0213.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0213.png",
+      "bbox": [1827, 0, 2943, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0217.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0217.png",
+      "bbox": [3, 0, 3634, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0221.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0221.png",
+      "bbox": [0, 0, 3705, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0229.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0229.png",
+      "bbox": [0, 0, 3183, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0233.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0233.png",
+      "bbox": [2854, 0, 3121, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0237.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0237.png",
+      "bbox": [3041, 0, 3249, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0241.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0241.png",
+      "bbox": [1874, 1481, 2750, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0245.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0245.png",
+      "bbox": [426, 1131, 3745, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0249.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0249.png",
+      "bbox": [388, 0, 4733, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0253.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0253.png",
+      "bbox": [0, 0, 5280, 2967]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0257.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0257.png",
+      "bbox": [0, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0265.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0265.png",
+      "bbox": [0, 0, 3628, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0277.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0277.png",
+      "bbox": [560, 0, 3612, 2821]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0324.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0324.png",
+      "bbox": [803, 1551, 2564, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0332.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0332.png",
+      "bbox": [1310, 0, 4521, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0336.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0336.png",
+      "bbox": [1807, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0352.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0352.png",
+      "bbox": [2534, 0, 4227, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0356.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0356.png",
+      "bbox": [1783, 0, 5280, 2969]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0360.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0360.png",
+      "bbox": [2001, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0376.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0376.png",
+      "bbox": [1906, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0383.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0383.png",
+      "bbox": [146, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0387.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0387.png",
+      "bbox": [1541, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0391.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0391.png",
+      "bbox": [1123, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0395.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0395.png",
+      "bbox": [476, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0403.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0403.png",
+      "bbox": [1483, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0407.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0407.png",
+      "bbox": [899, 0, 4584, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0411.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0411.png",
+      "bbox": [509, 0, 4286, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0415.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0415.png",
+      "bbox": [2079, 511, 4686, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0419.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0419.png",
+      "bbox": [0, 0, 5280, 2969]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0423.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0423.png",
+      "bbox": [0, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0427.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0427.png",
+      "bbox": [0, 1304, 5280, 2265]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0431.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0431.png",
+      "bbox": [0, 974, 5280, 2233]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0435.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0435.png",
+      "bbox": [0, 1093, 5280, 2206]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0439.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0439.png",
+      "bbox": [0, 1364, 5280, 2692]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0443.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0443.png",
+      "bbox": [0, 830, 5280, 2282]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0447.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0447.png",
+      "bbox": [0, 1255, 3441, 2190]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0451.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0451.png",
+      "bbox": [0, 1422, 2604, 2303]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0960.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0960.png",
+      "bbox": [2330, 0, 2883, 730]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0968.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0968.png",
+      "bbox": [2363, 0, 4076, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0972.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0972.png",
+      "bbox": [0, 0, 3783, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0976.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0976.png",
+      "bbox": [0, 890, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0980.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0980.png",
+      "bbox": [0, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0984.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0984.png",
+      "bbox": [0, 0, 3151, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0988.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0988.png",
+      "bbox": [0, 0, 3339, 2970]
+    },
+    {
+      "image_path": "./dataset/train/DJI_0996.jpg",
+      "mask_path": "./dataset/train/masks/DJI_0996.png",
+      "bbox": [1568, 0, 3726, 2970]
+    }
+  ],
+  "test": [
+    {
+      "image_path": "./dataset/test/DJI_0088.jpg",
+      "mask_path": "./dataset/test/masks/DJI_0088.png",
+      "bbox": [921, 15, 3571, 2970]
+    },
+    {
+      "image_path": "./dataset/test/DJI_0112.jpg",
+      "mask_path": "./dataset/test/masks/DJI_0112.png",
+      "bbox": [1420, 35, 2954, 2970]
+    },
+    {
+      "image_path": "./dataset/test/DJI_0205.jpg",
+      "mask_path": "./dataset/test/masks/DJI_0205.png",
+      "bbox": [1243, 0, 3328, 2970]
+    },
+    {
+      "image_path": "./dataset/test/DJI_0209.jpg",
+      "mask_path": "./dataset/test/masks/DJI_0209.png",
+      "bbox": [2448, 0, 3297, 2644]
+    },
+    {
+      "image_path": "./dataset/test/DJI_0225.jpg",
+      "mask_path": "./dataset/test/masks/DJI_0225.png",
+      "bbox": [0, 0, 3203, 2970]
+    },
+    {
+      "image_path": "./dataset/test/DJI_0261.jpg",
+      "mask_path": "./dataset/test/masks/DJI_0261.png",
+      "bbox": [0, 0, 3976, 2970]
+    },
+    {
+      "image_path": "./dataset/test/DJI_0281.jpg",
+      "mask_path": "./dataset/test/masks/DJI_0281.png",
+      "bbox": [1253, 0, 2918, 2357]
+    },
+    {
+      "image_path": "./dataset/test/DJI_0372.jpg",
+      "mask_path": "./dataset/test/masks/DJI_0372.png",
+      "bbox": [1227, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/test/DJI_0399.jpg",
+      "mask_path": "./dataset/test/masks/DJI_0399.png",
+      "bbox": [1077, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/test/DJI_0964.jpg",
+      "mask_path": "./dataset/test/masks/DJI_0964.png",
+      "bbox": [2306, 0, 2808, 2970]
+    }
+  ],
+  "val": [
+    {
+      "image_path": "./dataset/val/DJI_0100.jpg",
+      "mask_path": "./dataset/val/masks/DJI_0100.png",
+      "bbox": [1337, 111, 4521, 2970]
+    },
+    {
+      "image_path": "./dataset/val/DJI_0269.jpg",
+      "mask_path": "./dataset/val/masks/DJI_0269.png",
+      "bbox": [161, 0, 3452, 2970]
+    },
+    {
+      "image_path": "./dataset/val/DJI_0273.jpg",
+      "mask_path": "./dataset/val/masks/DJI_0273.png",
+      "bbox": [0, 0, 2941, 2970]
+    },
+    {
+      "image_path": "./dataset/val/DJI_0328.jpg",
+      "mask_path": "./dataset/val/masks/DJI_0328.png",
+      "bbox": [1482, 136, 4403, 2970]
+    },
+    {
+      "image_path": "./dataset/val/DJI_0340.jpg",
+      "mask_path": "./dataset/val/masks/DJI_0340.png",
+      "bbox": [938, 0, 4508, 2970]
+    },
+    {
+      "image_path": "./dataset/val/DJI_0344.jpg",
+      "mask_path": "./dataset/val/masks/DJI_0344.png",
+      "bbox": [752, 0, 4340, 2970]
+    },
+    {
+      "image_path": "./dataset/val/DJI_0348.jpg",
+      "mask_path": "./dataset/val/masks/DJI_0348.png",
+      "bbox": [0, 0, 3684, 2970]
+    },
+    {
+      "image_path": "./dataset/val/DJI_0364.jpg",
+      "mask_path": "./dataset/val/masks/DJI_0364.png",
+      "bbox": [1957, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/val/DJI_0368.jpg",
+      "mask_path": "./dataset/val/masks/DJI_0368.png",
+      "bbox": [1365, 0, 5280, 2970]
+    },
+    {
+      "image_path": "./dataset/val/DJI_0992.jpg",
+      "mask_path": "./dataset/val/masks/DJI_0992.png",
+      "bbox": [472, 0, 3632, 2970]
+    }
+  ]
 }

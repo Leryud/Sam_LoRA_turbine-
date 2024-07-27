@@ -22,7 +22,7 @@ This file compute the evaluation metric (Dice cross entropy loss) for all traine
 which compares the performances on test the test set.
 """
 
-device = "cuda" if torch.cuda.is_available() else "cpu"
+device = "cuda" if torch.cuda.is_available() else "mps"
 seg_loss = monai.losses.DiceCELoss(sigmoid=True, squared_pred=True, reduction='mean')
 # Load the config file
 with open("./config.yaml", "r") as ymlfile:
@@ -39,17 +39,17 @@ with torch.no_grad():
     dataset = DatasetSegmentation(config_file, processor, mode="test")
     test_dataloader = DataLoader(dataset, batch_size=1, collate_fn=collate_fn)
     baseline.eval()
-    baseline.to(device)   
+    baseline.to(device)
     for i, batch in enumerate(tqdm(test_dataloader)):
-        
+
         outputs = baseline(batched_input=batch,
             multimask_output=False)
-        
+
         gt_mask_tensor = batch[0]["ground_truth_mask"].unsqueeze(0).unsqueeze(0) # We need to get the [B, C, H, W] starting from [H, W]
         loss = seg_loss(outputs[0]["low_res_logits"], gt_mask_tensor.float().to(device))
 
         total_baseline_loss.append(loss.item())
-        
+
 
     print(f'Mean dice score: {mean(total_baseline_loss)}')
     baseline_loss = mean(total_baseline_loss)
@@ -59,9 +59,9 @@ with torch.no_grad():
         baseline = sam
         #Create SAM LoRA
         sam_lora = LoRA_sam(sam, rank)
-        sam_lora.load_lora_parameters(f"./lora_weights/lora_rank{rank}.safetensors")  
+        sam_lora.load_lora_parameters(f"./lora_weights/lora_rank{rank}.safetensors")
         model = sam_lora.sam
-        
+
         # Process the dataset
         processor = Samprocessor(model)
         dataset = DatasetSegmentation(config_file, processor, mode="test")
@@ -73,19 +73,19 @@ with torch.no_grad():
         # Set model to train and into the device
         model.eval()
         model.to(device)
-    
+
 
         total_score = []
         for i, batch in enumerate(tqdm(test_dataloader)):
-            
+
             outputs = model(batched_input=batch,
                 multimask_output=False)
-            
+
             gt_mask_tensor = batch[0]["ground_truth_mask"].unsqueeze(0).unsqueeze(0) # We need to get the [B, C, H, W] starting from [H, W]
             loss = seg_loss(outputs[0]["low_res_logits"], gt_mask_tensor.float().to(device))
 
             total_score.append(loss.item())
-            
+
 
         print(f'Mean dice score: {mean(total_score)}')
         rank_loss.append(mean(total_score))
@@ -96,8 +96,8 @@ print("RANK LOSS :", rank_loss)
 width = 0.25  # the width of the bars
 multiplier = 0
 models_results= {"Baseline": baseline_loss,
-                 "Rank 2": rank_loss[0], 
-                 "Rank 4": rank_loss[1], 
+                 "Rank 2": rank_loss[0],
+                 "Rank 4": rank_loss[1],
                  "Rank 6": rank_loss[2],
                  "Rank 8": rank_loss[3],
                  "Rank 16": rank_loss[4],
