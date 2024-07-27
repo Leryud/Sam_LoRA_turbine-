@@ -15,11 +15,19 @@ from src.lora import LoRA_sam
 import matplotlib.pyplot as plt
 import yaml
 import torch.nn.functional as F
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--rank", type=int, default=16)
+
 """
 This file is used to train a LoRA_sam model. I use that monai DiceLoss for the training. The batch size and number of epochs are taken from the configuration file.
 The model is saved at the end as a safetensor.
 
 """
+
+args = parser.parse_args()
+print(f"Training using rank: {args.rank}")
 # Load the config file
 with open("./config.yaml", "r") as ymlfile:
    config_file = yaml.load(ymlfile, Loader=yaml.Loader)
@@ -29,7 +37,7 @@ train_dataset_path = config_file["DATASET"]["TRAIN_PATH"]
 # Load SAM model
 sam = build_sam_vit_b(checkpoint=config_file["SAM"]["CHECKPOINT"])
 #Create SAM LoRA
-sam_lora = LoRA_sam(sam, config_file["SAM"]["RANK"])
+sam_lora = LoRA_sam(sam, args.rank)
 model = sam_lora.sam
 # Process the dataset
 processor = Samprocessor(model)
@@ -72,5 +80,5 @@ for epoch in range(num_epochs):
     print(f'Mean loss training: {mean(epoch_losses)}')
 
 # Save the parameters of the model in safetensors format
-rank = config_file["SAM"]["RANK"]
+rank = args.rank
 sam_lora.save_lora_parameters(f"lora_rank{rank}.safetensors")
