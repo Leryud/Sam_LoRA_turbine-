@@ -19,7 +19,7 @@ line 22: change the rank of lora; line 98: Do inference on train (inference_trai
 sam_checkpoint = "sam_vit_b_01ec64.pth"
 device = "cuda" if torch.cuda.is_available() else "mps"
 sam = build_sam_vit_b(checkpoint=sam_checkpoint)
-rank = 64
+rank = 8
 sam_lora = LoRA_sam(sam, rank)
 sam_lora.load_lora_parameters(f"./lora_weights/lora_rank{rank}.safetensors")
 model = sam_lora.sam
@@ -78,10 +78,10 @@ def inference_model(sam_model, image_path, filename, mask_path=None, bbox=None, 
         ax3.imshow(masks[0])
         if is_baseline:
             ax3.set_title(f"Baseline SAM prediction: {filename}")
-            plt.savefig(f"./plots/{filename}_baseline.jpg")
+            plt.savefig(f"./plots/{filename}_baseline.jpg", dpi=300)
         else:
             ax3.set_title(f"SAM LoRA rank {rank} prediction: {filename}")
-            plt.savefig(f"./plots/{filename[:-4]}_rank{rank}.jpg")
+            plt.savefig(f"./plots/{filename[:-4]}_rank{rank}.jpg", dpi=300)
 
 
 # Open configuration file
@@ -95,7 +95,7 @@ annotations = json.load(f)
 
 train_set = annotations["train"]
 test_set = annotations["test"]
-inference_train = True
+inference_train = False
 
 if inference_train:
 

@@ -34,7 +34,7 @@ class LoRA_qkv(nn.Module):
             linear_a_v: nn.Module,
             linear_b_v: nn.Module,
     ):
-        
+
         super(LoRA_qkv, self).__init__()
         self.qkv = qkv
         self.linear_a_q = linear_a_q
@@ -51,6 +51,8 @@ class LoRA_qkv(nn.Module):
         qkv[:, :, :, :self.d_model] += q_ba #q part
         qkv[:, :, :, -self.d_model:] += v_ba #v part
 
+
+
         return qkv
 
 
@@ -62,7 +64,7 @@ class LoRA_sam(nn.Module):
         sam_model: Sam class of the segment anything model
         rank: Rank of the matrix for LoRA
         lora_layer: List of weights exisitng for LoRA
-    
+
     Return:
         None
 
@@ -79,7 +81,7 @@ class LoRA_sam(nn.Module):
         else:
             # In each block, you have an attention block => total blocks -> nb lora layers
             self.lora_layer = list(range(len(sam_model.image_encoder.blocks)))
-        
+
         self.A_weights = []
         self.B_weights = []
 
@@ -99,7 +101,7 @@ class LoRA_sam(nn.Module):
             w_b_linear_q = nn.Linear(self.rank, self.d_model, bias=False)
             w_a_linear_v = nn.Linear(self.d_model, self.rank, bias=False)
             w_b_linear_v = nn.Linear(self.rank, self.d_model, bias=False)
-            
+
 
             self.A_weights.append(w_a_linear_q)
             self.B_weights.append(w_b_linear_q)
@@ -136,7 +138,7 @@ class LoRA_sam(nn.Module):
 
         Arguments:
             filenmame: Name of the file that will be saved
-        
+
         Return:
             None: Saves a safetensors file
         """
@@ -154,7 +156,7 @@ class LoRA_sam(nn.Module):
 
         Arguments:
             filename: Name of the file containing the saved weights
-        
+
         Return:
             None: Loads the weights to the LoRA_sam class
         """

@@ -11,7 +11,7 @@ class Samprocessor:
     Processor that transform the image and bounding box prompt with ResizeLongestSide and then pre process both data
         Arguments:
             sam_model: Model of SAM with LoRA weights initialised
-        
+
         Return:
             inputs (list(dict)): list of dict in the input format of SAM containing (prompt key is a personal addition)
                 image: Image preprocessed
@@ -32,11 +32,11 @@ class Samprocessor:
         # Transform input prompts
         box_torch = self.process_prompt(prompt, original_size)
 
-        inputs = {"image": image_torch, 
+        inputs = {"image": image_torch,
                   "original_size": original_size,
                  "boxes": box_torch,
                  "prompt" : prompt}
-        
+
         return inputs
 
 

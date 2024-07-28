@@ -81,4 +81,4 @@ for epoch in range(num_epochs):
 
 # Save the parameters of the model in safetensors format
 rank = args.rank
-sam_lora.save_lora_parameters(f"lora_rank{rank}.safetensors")
+sam_lora.save_lora_parameters(f"lora_weights/lora_rank{rank}.safetensors")

@@ -124,4 +124,4 @@ ax.set_xticks(x + width, eval_scores_name)
 ax.legend(loc=3, ncols=2)
 ax.set_ylim(0, 0.2)
 
-plt.savefig("./plots/rank_comparison.jpg")
+plt.savefig("./plots/rank_comparison.jpg", dpi=300)

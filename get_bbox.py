@@ -32,27 +32,21 @@ def process_filenames(file_path, split):
     Returns:
         list: A list of JSON structs containing image path, mask path, and bounding box.
     """
-    result = []
+    result = {"train": {}, "test": {}, "val": {}}
     with open(file_path, 'r') as f:
         for line in f:
             filename = line.strip()
-            image_path = f"./dataset/v1/{filename}"
-            mask_path = f"./dataset/v1/masks/{filename.split('.')[0]}_class_turbine.png"
-
-            # Copy image and mask to respective folders
-            new_image_path = f"./dataset/{split}/{filename}"
-            new_mask_path = f"./dataset/{split}/masks/{filename.split('.')[0]}_class_turbine.png"
-            shutil.copy(image_path, new_image_path)
-            shutil.copy(mask_path, new_mask_path)
+            image_path = f"./dataset/{split}/images/{filename}"
+            mask_path = f"./dataset/{split}/masks/{filename.split('.')[0]}.png"
 
             mask = np.array(Image.open(mask_path))
             bbox = get_bounding_box(mask)
             bbox = [int(i) for i in bbox]
-            result.append({
-                "image_path": new_image_path,
-                "mask_path": new_mask_path,
+            result[split][filename] = {
+                "mask_path": mask_path,
                 "bbox": bbox
-            })
+                }
+
     return result
 
 annotations = dict()
